@@ -8,6 +8,26 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} - Comics Feed" href="{{ '/feed.xml' | absolute_url }}">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Social / Open Graph meta -->
+    {% if page.image %}
+      {% assign og_image = page.image | absolute_url %}
+    {% else %}
+      {% assign og_image = '/assets/images/social-share.jpg' | absolute_url %}
+    {% endif %}
+    {% assign og_title = page.title | default: site.title | append: ' – ' | append: site.title %}
+    {% if page.title == site.title %}{% assign og_title = site.title %}{% endif %}
+    {% assign og_desc = page.alt | default: page.description | default: site.description %}
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{{ og_title | xml_escape }}">
+    <meta property="og:description" content="{{ og_desc | xml_escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ og_image }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ og_title | xml_escape }}">
+    <meta name="twitter:description" content="{{ og_desc | xml_escape }}">
+    <meta name="twitter:image" content="{{ og_image }}">
 </head>
 <body>
     <header>

@@ -83,6 +83,28 @@ layout: default
     <div class="comic-info">
         <h1>{{ page.title }}</h1>
         <p class="comic-date">Posted {{ page.date | date: "%B %d, %Y" }}</p>
+
+        <button class="share-button" onclick="shareComic()">Share This Comic</button>
+        <script>
+        async function shareComic() {
+            const shareData = {
+                title: '{{ page.title | xml_escape }} – {{ site.title }}',
+                text: '{{ page.alt | default: page.title | xml_escape }}',
+                url: window.location.href
+            };
+            if (navigator.share) {
+                try { await navigator.share(shareData); }
+                catch (e) { if (e.name !== 'AbortError') console.error(e); }
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    const btn = document.querySelector('.share-button');
+                    const orig = btn.textContent;
+                    btn.textContent = 'Link Copied!';
+                    setTimeout(() => btn.textContent = orig, 2000);
+                });
+            }
+        }
+        </script>
         
         {% if page.tags %}
         <div class="tags">
