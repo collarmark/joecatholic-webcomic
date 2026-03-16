@@ -57,31 +57,50 @@
 
     <footer>
         <div class="footer-container">
-            <div class="footer-logo">
-                <img src="/assets/images/collarmark-lockup-dark.png" alt="Collarmark Productions">
-            </div>
-            <div class="footer-divider"></div>
-            <p>&copy; 1999-{{ 'now' | date: "%Y" }} <a href="{{ site.author.url }}">{{ site.author.name }}</a> and Collarmark Productions.</p>
-            
-            <div class="footer-social">
-                <a href="https://ko-fi.com/digitalcatholic" target="_blank" rel="noopener">☕ Support on Ko-fi</a>
-                <span class="footer-dot">•</span>
-                <a href="https://x.com/joecatholicart" target="_blank" rel="noopener">🐦 Follow on X</a>
-                <span class="footer-dot">•</span>
-                <a href="https://youtube.com/@joecatholicdraws" target="_blank" rel="noopener">🎨 YouTube</a>
-            </div>
-            
-            <p class="footer-links">
-                <a href="/feed.xml">📡 RSS Feed</a> |
-                <a href="/about">About</a> |
-                <a href="/archive">Archive</a> |
-                <a href="/privacy">Privacy Policy</a> |
-                <a href="/copyright">Copyright &amp; IP</a>
-            </p>
 
-            <p class="footer-ip">
-                <em>Joe Catholic</em> &trade; &amp; &copy; 1999&ndash;{{ 'now' | date: "%Y" }} <a href="{{ site.author.url }}">{{ site.author.name }}</a> &amp; Collarmark Productions. All rights reserved. <a href="/copyright">Copyright &amp; IP Policy</a>
-            </p>
+            <div class="footer-sitemap">
+                <div class="footer-col">
+                    <h4>The Comic</h4>
+                    <ul>
+                        <li><a href="/archive">Archive</a></li>
+                        <li><a href="/about">About the Characters</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn &amp; Explore</h4>
+                    <ul>
+                        <li><a href="/tutorials">Tutorials</a></li>
+                        <li><a href="/explores">Joe Catholic Explores</a></li>
+                        <li><a href="/feed.xml">RSS Feed</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://ko-fi.com/digitalcatholic" target="_blank" rel="noopener">Support on Ko-fi</a></li>
+                        <li><a href="https://x.com/joecatholicart" target="_blank" rel="noopener">Follow on X</a></li>
+                        <li><a href="https://youtube.com/@joecatholicdraws" target="_blank" rel="noopener">YouTube</a></li>
+                        <li><a href="{{ site.social.store }}" target="_blank" rel="noopener">Books &amp; Merch</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/copyright">Copyright &amp; IP</a></li>
+                        <li><a href="/assets/brand/">Brand Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-logo">
+                    <a href="https://collarmark.studio" target="_blank" rel="noopener">
+                        <img src="/assets/images/collarmark-lockup-dark.png" alt="Collarmark Productions">
+                    </a>
+                </div>
+            </div>
+
+            <p class="footer-ip">&copy; 1999&ndash;{{ 'now' | date: "%Y" }} <a href="{{ site.author.url }}">{{ site.author.name }}</a> &amp; <a href="https://collarmark.studio">Collarmark Productions</a>.</p>
+
         </div>
     </footer>
 
