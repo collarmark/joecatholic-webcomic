@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
+editor:
+  preview: false
+
 media_folder: "assets/comics"
 public_folder: "/assets/comics"
 
@@ -43,7 +46,22 @@ collections:
           name: "tag"
           widget: "string"
       
-      - {label: "Commentary", name: "body", widget: "markdown", required: false}
+      - label: "Commentary"
+        name: "body"
+        widget: "markdown"
+        required: false
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+          - code-block
       - {label: "Transcript", name: "transcript", widget: "text", required: false}
 
   - name: "posts"
@@ -60,7 +78,21 @@ collections:
       - {label: "Excerpt", name: "excerpt", widget: "text", required: false}
       - {label: "Categories", name: "categories", widget: "list", required: false}
       - {label: "Tags", name: "tags", widget: "list", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+          - code-block
 
   - name: "tutorials"
     label: "Tutorials"
@@ -84,7 +116,21 @@ collections:
       - {label: "Topics Covered", name: "topics", widget: "list", required: false}
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Excerpt", name: "excerpt", widget: "text", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+          - code-block
       - label: "Download Resources"
         name: "resources"
         widget: "list"
@@ -132,4 +178,18 @@ collections:
       - {label: "Excerpt", name: "excerpt", widget: "text", required: false}
       - {label: "Keywords (for search)", name: "keywords", widget: "list", required: false}
       - {label: "Tags", name: "tags", widget: "list", required: false}
-      - {label: "Description", name: "body", widget: "markdown"}
+      - label: "Description"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+          - code-block
