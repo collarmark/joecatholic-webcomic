@@ -197,11 +197,11 @@ def main():
         print("\n" + "=" * 60)
         print("Migration Complete!")
         print("=" * 60)
-        print(f"\nNext steps:")
+        print("\nNext steps:")
         print(f"1. Review the files in {OUTPUT_DIR}")
         print(f"2. Verify images in {IMAGES_DIR}")
-        print(f"3. Test with: bundle exec jekyll serve")
-        print(f"4. Fix any issues and adjust episode numbers if needed")
+        print("3. Test with: bundle exec jekyll serve")
+        print("4. Fix any issues and adjust episode numbers if needed")
         
     finally:
         connection.close()
