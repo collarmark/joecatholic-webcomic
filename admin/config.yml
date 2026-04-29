@@ -14,6 +14,8 @@ collections:
     folder: "_comics"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{fields.comic_number}} — {{title}} ({{fields.date}})"
+    sortable_fields: ["comic_number", "title", "date"]
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "comic"}
       - {label: "Title", name: "title", widget: "string"}
@@ -69,6 +71,8 @@ collections:
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{fields.date}})"
+    sortable_fields: ["title", "date"]
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string"}
@@ -99,6 +103,8 @@ collections:
     folder: "_tutorials"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{fields.tutorial_type}}, {{fields.date}})"
+    sortable_fields: ["title", "date", "tutorial_type"]
     media_folder: "/assets/images/tutorials"
     public_folder: "/assets/images/tutorials"
     fields:
@@ -146,6 +152,8 @@ collections:
     folder: "_explores"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{fields.format}}, {{fields.date}})"
+    sortable_fields: ["title", "date", "format"]
     media_folder: "/assets/explores/thumbnails"
     public_folder: "/assets/explores/thumbnails"
     fields:
