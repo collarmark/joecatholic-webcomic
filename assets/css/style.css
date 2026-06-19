@@ -2577,24 +2577,15 @@ footer p {
     color: var(--deep-red);
 }
 
-/* Floating Cookie Prefs Button */
-.cookie-prefs-btn {
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    background: var(--rich-brown);
-    color: var(--parchment);
-    border: 2px solid var(--gold);
-    padding: 0.4rem 0.75rem;
-    font-size: 0.75rem;
+/* Cookie Preferences — footer link button */
+.footer-cookie-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding: 0;
     cursor: pointer;
-    z-index: 9000;
-    opacity: 0.75;
-    transition: opacity 0.2s;
-}
-
-.cookie-prefs-btn:hover {
-    opacity: 1;
+    text-decoration: underline;
 }
 
 /* ============================================

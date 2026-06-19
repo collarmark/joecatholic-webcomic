@@ -1,0 +1,125 @@
+<section class="cm-store-widget">
+  <div class="cm-store-widget__inner">
+    <h2 class="cm-store-widget__heading">Shop Joe Catholic</h2>
+    <div class="cm-store-widget__grid" id="cm-store-grid"></div>
+    <p class="cm-store-widget__cta-row">
+      <a href="https://collarmark.com/store/" class="cm-store-widget__browse-btn">Browse the Full Store &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<style>
+.cm-store-widget {
+  background: #f5f1ec;
+  padding: 3rem 1.5rem;
+}
+.cm-store-widget__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.cm-store-widget__heading {
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 0 0 1.5rem;
+}
+.cm-store-widget__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.cm-store-widget__card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s ease;
+}
+.cm-store-widget__card:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+.cm-store-widget__card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.cm-store-widget__card-img-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #e8e3dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 0.75rem;
+}
+.cm-store-widget__card-body {
+  padding: 0.7rem 0.75rem 0.85rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.cm-store-widget__card-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+.cm-store-widget__card-price {
+  font-size: 0.8rem;
+  color: #777;
+}
+.cm-store-widget__cta-row {
+  text-align: center;
+  margin: 1.75rem 0 0;
+}
+.cm-store-widget__browse-btn {
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  background: #1a1a1a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+.cm-store-widget__browse-btn:hover {
+  background: #333;
+}
+</style>
+
+<script>
+(function () {
+  var grid = document.getElementById('cm-store-grid');
+  if (!grid) return;
+
+  fetch('https://collarmark.com/store/products.json')
+    .then(function (r) { return r.json(); })
+    .then(function (products) {
+      var featured = products.filter(function (p) { return p.featured; });
+      var display = featured.length ? featured.slice(0, 6) : products.slice(0, 6);
+
+      grid.innerHTML = display.map(function (p) {
+        var price = typeof p.price === 'number'
+          ? '$' + p.price.toFixed(2)
+          : (p.price || '');
+        var escapedName = (p.name || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+        var imgHtml = p.image
+          ? '<img src="' + p.image + '" alt="' + escapedName + '" loading="lazy">'
+          : '<div class="cm-store-widget__card-img-placeholder">No image</div>';
+        return '<a href="' + p.url + '" class="cm-store-widget__card" target="_blank" rel="noopener">'
+          + imgHtml
+          + '<div class="cm-store-widget__card-body">'
+          + '<span class="cm-store-widget__card-name">' + (p.name || '') + '</span>'
+          + (price ? '<span class="cm-store-widget__card-price">' + price + '</span>' : '')
+          + '</div></a>';
+      }).join('');
+    })
+    .catch(function () {
+      grid.remove();
+    });
+})();
+</script>
