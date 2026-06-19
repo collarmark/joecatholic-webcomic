@@ -99,8 +99,8 @@
   fetch('https://collarmark.com/store/products.json')
     .then(function (r) { return r.json(); })
     .then(function (products) {
-      var featured = products.filter(function (p) { return p.featured; });
-      var display = featured.length ? featured.slice(0, 6) : products.slice(0, 6);
+      var jc = products.filter(function (p) { return p.category === 'joe-catholic'; });
+      var display = jc.slice(0, 6);
 
       grid.innerHTML = display.map(function (p) {
         var price = typeof p.price === 'number'
