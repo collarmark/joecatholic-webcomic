@@ -20,6 +20,7 @@ comic:
 social:
   youtube: "@joecatholicdraws"
   store: "https://collarmark.com/store/?filter=joe-catholic"
+  newsletter: "https://joecatholicdraws.substack.com"
 
 # Build settings
 markdown: kramdown
