@@ -8,8 +8,13 @@ baseurl: ""
 # Author information
 author:
   name: Fr. Christopher J. Decker
-  email: # your email
+  email: inquiries@collarmark.com
   url: http://fatherchrisdecker.com
+
+# Contact — split by purpose: general/licensing vs. legal (copyright, DMCA, privacy rights)
+contact:
+  inquiries: inquiries@collarmark.com
+  legal: legal@collarmark.com
 
 # Comic-specific settings
 comic:
